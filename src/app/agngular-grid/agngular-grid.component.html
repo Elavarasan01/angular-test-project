@@ -1,0 +1,51 @@
+<div class="container text-center mb-2 mt-2 border rounded">
+    <h3>
+        {{title}}!
+    </h3>
+</div>
+
+<!-- Button to clear selection -->
+<!-- <button (click)="clearSelection()">Clear Selection</button> -->
+<div class="container">
+    <div class="row mb-2 bg-secondary text-white fw-bold">
+        <div class="col-6 mt-4">
+        Selection:
+        <span id="selectedRows"></span>
+        </div>
+        <div class="col-6">
+            <label for="">Name :</label>
+        <input type="text" id="filter-text-box"  class="ms-2 form-control mb-2 bg-light" placeholder="Search..." (input)="onFilterTextBoxChanged()" />
+    </div>
+  </div>
+
+</div>
+  <!-- <div class="example-header">
+    Selection:
+    <span id="selectedRows"></span>
+  </div> -->
+
+
+<div class="container">
+    <div class="row">
+    <div class="col-8">
+    <ag-grid-angular style="width: 1000px; height: 100vh;" class="ag-theme-alpine" [columnDefs]="columnDefs"
+        [defaultColDef]="defaultColDef" 
+        [paginationPageSize]="paginationPageSize"
+        [suppressAggFuncInHeader]="true"
+        [rowSelection]="rowSelection"
+        [autoGroupColumnDef]="autoGroupColumnDef"
+        [rowData]="rowData"
+     
+        (selectionChanged)="onSelectionChanged()"
+        (gridReady)="onGridReady($event)"   
+        ></ag-grid-angular>
+        <!-- if we want the multi selection with one click  -->
+      <!-- [rowMultiSelectWithClick]="true" -->
+    </div>
+    <div class="col-4 text-end">
+        <button (click)="onBtExport()" class="btn btn-primary m-2"> Export XL</button>
+
+        <button (click)="onBtnExport1()" class="btn btn-danger">Download CSV export file</button>
+    </div>
+    </div>
+</div>

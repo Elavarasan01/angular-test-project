@@ -1,0 +1,115 @@
+<body class="reg-box bg-danger mt-4 rounded">
+    <div class="col-6 offset-3">
+        <form [formGroup]="register" (ngSubmit)="submit(register.value)">
+<table class="table text-white">
+    <thead>
+<h1 class="text-white text-center mt-3">Registeration Form</h1><hr/>
+</thead>
+    <tbody>
+<tr>
+  <th scope="col-3">Name:
+  <input type="text" placeholder="Enter Name" class="form-control" maxlength="20"
+  formControlName="Name"
+  [ngClass]="{ 'is-invalid': submitted && f['Name'].errors }"/>
+  <div *ngIf="submitted && f['Name'].errors">
+    <small *ngIf="f['Name'].errors['required']" class="text-white">Name required..!</small>
+    <small *ngIf="f['Name'].errors['minlength']" class="text-white">Minimum char required..!</small>
+  </div>
+</th>
+</tr>
+<tr>
+  <th scope="col-3">Email:
+  <input type="email"  placeholder="Enter Email" class="form-control" 
+  formControlName="email" 
+  [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"/>
+  <div *ngIf="submitted && f['email'].errors">
+    <small *ngIf="f['email'].errors['required']" class="text-white">Email required..!</small>
+    <small *ngIf="f['email'].errors['pattern']" class="text-white">Email invalid..!</small>
+  </div>
+</th>
+</tr>
+<tr>
+    <th scope="col-3">Mobile:
+    <input type="number"  formControlName="mobile" placeholder="Enter Mobile" minlength="11"
+    [ngClass]="{ 'is-invalid': submitted && f['mobile'].errors }" class="form-control"/>
+    <div *ngIf="submitted && f['mobile'].errors">
+      <small *ngIf="f['mobile'].errors['required']" class="text-white">Mobile number required..!</small>
+      <small *ngIf="f['mobile'].errors['pattern']" class="text-white">Invalid mobile Number..!</small>
+      <small *ngIf="f['mobile'].errors['minLength']" class="text-white">10 numbers required..!</small>
+      <small *ngIf="f['mobile'].errors['maxLength']" class="text-white">Not exceeds more than 10 number..!</small>
+  </div></th>
+  </tr>
+  <tr>
+     <th>Address:
+        <textarea placeholder="Enter address"  formControlName="address" 
+        [ngClass]="{ 'is-invalid': submitted && f['address'].errors }" class="form-control" rows="4"></textarea>
+        <div *ngIf="submitted && f['address'].errors">
+          <small *ngIf="f['address'].errors['required']" class="text-white">Address required..!</small>
+        </div>
+     </th>
+  </tr>
+  <tr>
+    <th>Gender:
+     <input type="radio" formControlName="gender" 
+        [ngClass]="{ 'is-invalid': submitted && f['gender'].errors }" value="male" 
+        />Male
+        <input type="radio"  formControlName="gender" 
+        [ngClass]="{ 'is-invalid': submitted && f['gender'].errors }" value="female"/>Female
+        <div *ngIf="submitted && f['gender'].errors">
+     <div *ngIf="f['gender'].errors['required']" class="text-white">Select your gender..!</div>
+    </div>
+    </th>
+  </tr>
+  <tr>
+      <th>City:
+        <select class="form-control"  [ngClass]="{ 'is-invalid': submitted && f['city'].errors }" formControlName="city">
+            <option>Chennai</option>
+            <option>Hydrabad</option>
+            <option>Delhi</option>
+            <option>Mumbai</option>
+          </select>
+          <div *ngIf="submitted && f['city'].errors">
+            <small *ngIf="f['city'].errors['required']" class="text-white">Choose any city..!</small>
+          </div>
+          </th>
+    </tr>    
+
+<tr>
+  <th scope="col-3">Password:
+  <input type="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
+  placeholder="Enter Password" class="form-control"/>
+  <div *ngIf="submitted && f['password'].errors">
+    <small *ngIf="f['password'].errors['required']" class="text-white">Password is required</small>
+    <small *ngIf="f['password'].errors['minlength']" class="text-white">Password at least 6</small>
+</div>
+</th>
+</tr>
+<tr>
+  <th  scope="col-3">Confirm Password:
+  <input type="password" formControlName="cnpass"  
+  [ngClass]="{ 'is-invalid': submitted && f['cnpass'].errors }" placeholder="Enter confirm password" class="form-control"/>
+  <div *ngIf="submitted && f['cnpass'].errors">
+    <small *ngIf="f['cnpass'].errors['required']" class="text-white">Confirm Password is required..!</small>
+    <small *ngIf="f['cnpass'].errors['MustMatch']" class="text-white">Password did't match..!</small>
+</div>
+</th>
+</tr>
+<tr>
+  <input type="checkbox" [ngClass]="{ 'is-invalid': submitted && f['check'].errors }" formControlName="check"/>I agree with this form
+  <div *ngIf="submitted && f['check'].errors">
+    <small *ngIf="f['check'].errors['required']" class="text-white">please check the button..!</small>
+  </div>
+</tr>
+<tr>
+ <th class="text-center">
+   <button type="submit" class="btn text-danger bg-white">Register</button>
+ </th>
+</tr>
+   
+</tbody>
+
+</table>
+</form>
+</div>
+</body>
+

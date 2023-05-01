@@ -1,0 +1,33 @@
+{
+  "posts": [
+    {
+      "id": 3,
+      "name": "Prudhvi",
+      "city": "Amalapuram"
+    },
+    {
+      "id": 11,
+      "name": "Maharshi",
+      "city": "Telangana"
+    },
+    {
+      "id": 14,
+      "name": "Awinash Akram",
+      "city": "Mumbai"
+    },
+    {
+      "id": 15,
+      "name": "asha jothi",
+      "city": "secundrabad"
+    },
+    {
+      "id": 16,
+      "name": "Elavarasan",
+      "city": "trichy"
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}

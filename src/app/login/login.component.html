@@ -1,0 +1,40 @@
+<div class="login-wrapper">
+  <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" class="login">
+
+    <div class="login-group">
+      <div class="border p-5 bg-secondary">
+        <h3 class="text-center text-white mb-2">User Login</h3>
+        <div class="text-center">
+          <input required class="username m-2 form-control" formControlName="email" type="text" placeholder="Email"
+            [ngClass]="{ 'is-invalid': submitted && f['email'].errors }">
+
+          <div *ngIf="submitted && f['email'].errors">
+            <i *ngIf="f['email'].errors['required']" class="text-white">Email requied</i>
+            <i *ngIf="f['email'].errors['pattern']" class="text-white">Email is invalid</i>
+          </div>
+          <br>
+          <input required class="password m-2 form-control" formControlName="password" type="password"
+            placeholder="Password" [ngClass]="{ 'is-invalid': submitted && f['password'].errors }">
+          <div *ngIf="submitted && f['password'].errors">
+            <i *ngIf="f['password'].errors['required']" class="text-white">Password requied</i>
+            <i *ngIf="f['password'].errors['minlength']" class="text-white">Invalid password</i>
+            <i *ngIf="f['password'].errors['maxlength']" class="text-white">password should be within 10 charecter</i>
+          </div>
+        </div>
+        <br>
+        <p class="text-center">
+          <button type="submit" class="btn btn-lg bg-white text-primary">
+           Login
+          </button>
+        </p>
+        <p class="text-white text-end">
+          new user?<a href="register" class="signup text-white">
+            Register
+          </a>
+        </p>
+      </div>
+    </div>
+
+  </form>
+</div>
+<!-- <div class="bg-success text-white">{{hero}}</div> -->

@@ -1,0 +1,11 @@
+<p class="text-center mt-5">
+    <button class="btn btn-primary" (click)="childClick()">Click here</button>
+</p>
+<div class="col-4 offset-4 text-center"><input type="text" class="form-control"  [(ngModel)]="Childworks"/></div>
+
+<!-- <app-lifecycle *ngIf="isChild" [Childworks]="Childworks">
+    <ng-content></ng-content>
+</app-lifecycle> -->
+<!-- <h2 class="text-center">This is form Child</h2> -->
+<div class="text-center">{{Childworks}}</div>
+

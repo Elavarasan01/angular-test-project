@@ -1,0 +1,71 @@
+<div class="tab-main mt-5">
+    <h2 class="bg-secondary shadow bordered text-center rounded text-light p-2 m-2">List of users in this project</h2>
+    <p class="text-center">  <button class="btn btn-success" (click)="clickAddUser()" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add User+</button></p>
+<table class="table table-striped table-hover border">
+   <thead>
+    <tr>
+        <th>Id</th>
+        <th>UserName</th>
+        <th>city</th>
+        <th>Action</th>
+    </tr>
+   </thead> 
+   <tbody>
+     <tr>
+       <td>1</td>
+       <td>Dharmesh</td>
+       <td>Mumbai</td>
+       <td>
+        <button class="btn btn-warning btn-sm m-1">Edit</button>
+        <button class="btn btn-danger btn-sm">Delete</button>
+       </td>
+     </tr>
+     <tr>
+      <td>2</td>
+      <td>Betty</td>
+      <td>Vizag</td>
+      <td>
+        <button class="btn btn-warning btn-sm m-1">Edit</button>
+        <button class="btn btn-danger btn-sm">Delete</button>
+       </td>
+    </tr>
+    <tr *ngFor="let row of UserData">
+      <td>{{row.id}}</td>
+      <td>{{row.name}}</td>
+      <td>{{row.city}}</td>
+      <td>
+          <button class="btn btn-warning btn-sm m-1" (click)="onEdit(row)" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Edit</button>
+          <button class="btn btn-danger btn-sm" (click)="deleteUser(row)">Delete</button>
+      </td>
+    </tr>
+   </tbody>
+</table>
+</div>
+<div class="col-12">
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-center" id="staticBackdropLabel">Edit details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form [formGroup]="formValue">
+        <div class="modal-body">
+          
+         <label>Name</label>   
+         <input type="text" class="form-control" formControlName="name"/>
+         <label>City</label>
+         <input type="text" class="form-control" formControlName="city"/>
+        
+        </div>
+        <div class="modal-footer">
+          <button type="button"  class="btn btn-secondary" id="cancel" data-bs-dismiss="modal">Close</button>
+          <button type="button" *ngIf="showAdd" (click)="postUserDetail()" class="btn btn-primary">Save</button>
+          <button type="button" *ngIf="showUpdate" (click)="updateUserDetail()" class="btn btn-warning">Update</button>
+        </div>
+    </form>
+      </div>
+    </div>
+  </div>
+</div>
